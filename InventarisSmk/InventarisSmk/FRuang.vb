@@ -38,9 +38,9 @@ Public Class FRuang
             str = "INSERT INTO tb_ruang (id_ruang, nama_ruang, kode_ruang, keterangan) VALUES ('" & idRuangTxt.Text & "','" & namaTxt.Text & "', '" & kodeTxt.Text & "','" & keteranganTxt.Text & "')"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Insert Data User Berhasil Dilakukan")
+            MessageBox.Show("Insert Data Ruang Berhasil Dilakukan")
         Catch ex As Exception
-            MessageBox.Show("Insert data User gagal dilakukan.")
+            MessageBox.Show("Insert Data Ruang gagal dilakukan.")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -58,10 +58,10 @@ Public Class FRuang
             str = "UPDATE tb_ruang SET id_ruang = '" & idRuangTxt.Text & "', nama_ruang = '" & namaTxt.Text & "', kode_ruang = '" & kodeTxt.Text & "', keterangan = '" & keteranganTxt.Text & "' WHERE id_ruang = '" & idRuangTxt.Text & "'"
             CMD = New MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Update Data User Berhasil Dilakukan.")
+            MessageBox.Show("Update Data Ruang Berhasil Dilakukan.")
 
         Catch ex As Exception
-            MessageBox.Show("Update data User gagal dilakukan")
+            MessageBox.Show("Update Data Ruang gagal dilakukan")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -78,20 +78,22 @@ Public Class FRuang
             str = "delete from tb_ruang where id_ruang = '" & idRuangTxt.Text & "'"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Data User Berhasil Dihapus.")
+            MessageBox.Show("Data Ruang Berhasil Dihapus.")
 
         Catch ex As Exception
-            MessageBox.Show("Data User Gagal Dihapus.")
+            MessageBox.Show("Data Ruang Gagal Dihapus.")
         End Try
         Call tampilUser()
         Call aturDGV()
     End Sub
 
     Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Menghapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Call hapusUser()
     End Sub
 
     Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Keluar", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Me.Close()
     End Sub
 
@@ -114,7 +116,7 @@ Public Class FRuang
         DGruang.DataSource = tampil
         DGruang.Refresh()
         'memunculkan data tabel berdasarkan pencarian Txt_Cari(memasukkan ID Anggota)
-        tampil.RowFilter = "id_ruang= '" & cariTxt.Text & "'"
+        tampil.RowFilter = "nama_ruang= '" & cariTxt.Text & "'"
         DGruang.Refresh()
     End Sub
 End Class

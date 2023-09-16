@@ -24,9 +24,7 @@ Partial Class FMenu
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DetaiPinjamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PeminjamanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,33 +55,19 @@ Partial Class FMenu
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoginToolStripMenuItem, Me.LogOutToolStripMenuItem, Me.KeluarToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogOutToolStripMenuItem})
         Me.FileToolStripMenuItem.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FileToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(55, 27)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'LoginToolStripMenuItem
-        '
-        Me.LoginToolStripMenuItem.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
-        Me.LoginToolStripMenuItem.Text = "Login"
-        '
         'LogOutToolStripMenuItem
         '
         Me.LogOutToolStripMenuItem.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
-        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.LogOutToolStripMenuItem.Text = "LogOut"
-        '
-        'KeluarToolStripMenuItem
-        '
-        Me.KeluarToolStripMenuItem.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.KeluarToolStripMenuItem.Name = "KeluarToolStripMenuItem"
-        Me.KeluarToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
-        Me.KeluarToolStripMenuItem.Text = "Keluar"
         '
         'LaporanToolStripMenuItem
         '
@@ -155,19 +139,19 @@ Partial Class FMenu
         'RuangToolStripMenuItem
         '
         Me.RuangToolStripMenuItem.Name = "RuangToolStripMenuItem"
-        Me.RuangToolStripMenuItem.Size = New System.Drawing.Size(134, 28)
+        Me.RuangToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.RuangToolStripMenuItem.Text = "Ruang"
         '
         'JenisToolStripMenuItem
         '
         Me.JenisToolStripMenuItem.Name = "JenisToolStripMenuItem"
-        Me.JenisToolStripMenuItem.Size = New System.Drawing.Size(134, 28)
+        Me.JenisToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.JenisToolStripMenuItem.Text = "Jenis"
         '
         'LevelToolStripMenuItem
         '
         Me.LevelToolStripMenuItem.Name = "LevelToolStripMenuItem"
-        Me.LevelToolStripMenuItem.Size = New System.Drawing.Size(134, 28)
+        Me.LevelToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.LevelToolStripMenuItem.Text = "Level"
         '
         'Label1
@@ -232,9 +216,7 @@ Partial Class FMenu
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents LoginToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents KeluarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LaporanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DetaiPinjamToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventarisToolStripMenuItem As ToolStripMenuItem

@@ -30,8 +30,6 @@ Partial Class FPeminjaman
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.cariBtn = New System.Windows.Forms.Button()
         Me.cariTxt = New System.Windows.Forms.TextBox()
-        Me.idPegawaiTxt = New System.Windows.Forms.TextBox()
-        Me.statusTxt = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -42,6 +40,8 @@ Partial Class FPeminjaman
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tglPinjam = New System.Windows.Forms.DateTimePicker()
         Me.tglKembali = New System.Windows.Forms.DateTimePicker()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CBstatus = New System.Windows.Forms.ComboBox()
         CType(Me.DGpeminjaman, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,22 +127,6 @@ Partial Class FPeminjaman
         Me.cariTxt.Name = "cariTxt"
         Me.cariTxt.Size = New System.Drawing.Size(220, 20)
         Me.cariTxt.TabIndex = 51
-        '
-        'idPegawaiTxt
-        '
-        Me.idPegawaiTxt.Location = New System.Drawing.Point(157, 288)
-        Me.idPegawaiTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.idPegawaiTxt.Name = "idPegawaiTxt"
-        Me.idPegawaiTxt.Size = New System.Drawing.Size(288, 20)
-        Me.idPegawaiTxt.TabIndex = 50
-        '
-        'statusTxt
-        '
-        Me.statusTxt.Location = New System.Drawing.Point(157, 242)
-        Me.statusTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.statusTxt.Name = "statusTxt"
-        Me.statusTxt.Size = New System.Drawing.Size(288, 20)
-        Me.statusTxt.TabIndex = 49
         '
         'Label7
         '
@@ -253,12 +237,32 @@ Partial Class FPeminjaman
         Me.tglKembali.Size = New System.Drawing.Size(288, 20)
         Me.tglKembali.TabIndex = 63
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(157, 291)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(288, 21)
+        Me.ComboBox1.TabIndex = 64
+        '
+        'CBstatus
+        '
+        Me.CBstatus.AutoCompleteCustomSource.AddRange(New String() {"Di Pinjam", "Di Kembalikan"})
+        Me.CBstatus.FormattingEnabled = True
+        Me.CBstatus.Items.AddRange(New Object() {"Di Pinjam", "Di Kembalikan", "Hilang"})
+        Me.CBstatus.Location = New System.Drawing.Point(157, 244)
+        Me.CBstatus.Name = "CBstatus"
+        Me.CBstatus.Size = New System.Drawing.Size(288, 21)
+        Me.CBstatus.TabIndex = 65
+        '
         'FPeminjaman
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Cyan
         Me.ClientSize = New System.Drawing.Size(909, 450)
+        Me.Controls.Add(Me.CBstatus)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.tglKembali)
         Me.Controls.Add(Me.tglPinjam)
         Me.Controls.Add(Me.Label6)
@@ -271,8 +275,6 @@ Partial Class FPeminjaman
         Me.Controls.Add(Me.btnSimpan)
         Me.Controls.Add(Me.cariBtn)
         Me.Controls.Add(Me.cariTxt)
-        Me.Controls.Add(Me.idPegawaiTxt)
-        Me.Controls.Add(Me.statusTxt)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -296,8 +298,6 @@ Partial Class FPeminjaman
     Friend WithEvents btnSimpan As Button
     Friend WithEvents cariBtn As Button
     Friend WithEvents cariTxt As TextBox
-    Friend WithEvents idPegawaiTxt As TextBox
-    Friend WithEvents statusTxt As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
@@ -308,4 +308,6 @@ Partial Class FPeminjaman
     Friend WithEvents Label6 As Label
     Friend WithEvents tglPinjam As DateTimePicker
     Friend WithEvents tglKembali As DateTimePicker
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents CBstatus As ComboBox
 End Class

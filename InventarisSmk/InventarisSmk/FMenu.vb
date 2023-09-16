@@ -1,10 +1,7 @@
 ﻿Public Class FMenu
 
-    Private Sub KeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KeluarToolStripMenuItem.Click
-        Me.Close()
-    End Sub
 
-    Private Sub LoginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoginToolStripMenuItem.Click
+    Private Sub LoginToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Form1.ShowDialog()
     End Sub
 
@@ -29,6 +26,7 @@
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Log Out", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Me.Hide()
         Form1.ShowDialog()
     End Sub

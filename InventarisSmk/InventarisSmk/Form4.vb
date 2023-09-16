@@ -38,9 +38,9 @@ Public Class Form4
             str = "INSERT INTO tb_pegawai (id_pegawai, nama_pegawai, nip, alamat) VALUES ('" & idPegawaiTxt.Text & "','" & namaTxt.Text & "', '" & nipTxt.Text & "', '" & alamatTxt.Text & "')"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Insert Data User Berhasil Dilakukan")
+            MessageBox.Show("Insert Data Pegawai Berhasil Dilakukan")
         Catch ex As Exception
-            MessageBox.Show("Insert data User gagal dilakukan.")
+            MessageBox.Show("Insert Data Pegawai gagal dilakukan.")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -58,10 +58,10 @@ Public Class Form4
             str = "UPDATE tb_pegawai SET id_pegawai = '" & idPegawaiTxt.Text & "', nama_pegawai = '" & namaTxt.Text & "', nip = '" & nipTxt.Text & "', alamat ='" & alamatTxt.Text & "' WHERE id_pegawai = '" & idPegawaiTxt.Text & "'"
             CMD = New MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Update Data User Berhasil Dilakukan.")
+            MessageBox.Show("Update Data Pegawai Berhasil Dilakukan.")
 
         Catch ex As Exception
-            MessageBox.Show("Update data User gagal dilakukan")
+            MessageBox.Show("Update Data Pegawai gagal dilakukan")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -78,20 +78,22 @@ Public Class Form4
             str = "delete from tb_pegawai where id_pegawai = '" & idPegawaiTxt.Text & "'"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Data User Berhasil Dihapus.")
+            MessageBox.Show("Data Pegawai Berhasil Dihapus.")
 
         Catch ex As Exception
-            MessageBox.Show("Data User Gagal Dihapus.")
+            MessageBox.Show("Data Pegawai Gagal Dihapus.")
         End Try
         Call tampilUser()
         Call aturDGV()
     End Sub
 
     Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Menghapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Call hapusUser()
     End Sub
 
     Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Keluar", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Me.Close()
     End Sub
 
@@ -107,7 +109,7 @@ Public Class Form4
         DGpegawai.DataSource = tampil
         DGpegawai.Refresh()
         'memunculkan data tabel berdasarkan pencarian Txt_Cari(memasukkan ID Anggota)
-        tampil.RowFilter = "id_pegawai= '" & cariTxt.Text & "'"
+        tampil.RowFilter = "nama_pegawai= '" & cariTxt.Text & "'"
         DGpegawai.Refresh()
     End Sub
 

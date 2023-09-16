@@ -42,10 +42,10 @@ Public Class FLevel
             str = "INSERT INTO tb_level (id_level, nama_level) VALUES ('" & idTxt.Text & "','" & namaTxt.Text & "')"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
                 CMD.ExecuteNonQuery()
-                MessageBox.Show("Insert Data User Berhasil Dilakukan")
-            Catch ex As Exception
-                MessageBox.Show("Insert data User gagal dilakukan.")
-            End Try
+            MessageBox.Show("Insert Data Level Berhasil Dilakukan")
+        Catch ex As Exception
+            MessageBox.Show("Insert Data Level gagal dilakukan.")
+        End Try
             Call tampilUser()
             Call aturDGV()
             cariTxt.Text = ""
@@ -57,11 +57,11 @@ Public Class FLevel
             str = "UPDATE tb_level SET id_level = '" & idTxt.Text & "', nama_level = '" & namaTxt.Text & "' WHERE id_level = '" & idTxt.Text & "'"
             CMD = New MySqlCommand(str, CONN)
                 CMD.ExecuteNonQuery()
-                MessageBox.Show("Update Data User Berhasil Dilakukan.")
+            MessageBox.Show("Update Data Level Berhasil Dilakukan.")
 
-            Catch ex As Exception
-                MessageBox.Show("Update data User gagal dilakukan")
-            End Try
+        Catch ex As Exception
+            MessageBox.Show("Update Data Level gagal dilakukan")
+        End Try
             Call tampilUser()
             Call aturDGV()
         End Sub
@@ -72,11 +72,11 @@ Public Class FLevel
             str = "delete from tb_level where id_level = '" & idTxt.Text & "'"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
                 CMD.ExecuteNonQuery()
-                MessageBox.Show("Data User Berhasil Dihapus.")
+            MessageBox.Show("Data Level Berhasil Dihapus.")
 
-            Catch ex As Exception
-                MessageBox.Show("Data User Gagal Dihapus.")
-            End Try
+        Catch ex As Exception
+            MessageBox.Show("Data Level Gagal Dihapus.")
+        End Try
             Call tampilUser()
             Call aturDGV()
         End Sub
@@ -88,12 +88,14 @@ Public Class FLevel
         End Sub
 
         Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
-            Call hapusUser()
-        End Sub
+        MessageBox.Show("Apakah Anda Yakin Akan Menghapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
+        Call hapusUser()
+    End Sub
 
         Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
-            Me.Close()
-        End Sub
+        MessageBox.Show("Apakah Anda Yakin Akan Keluar", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
+        Me.Close()
+    End Sub
 
         Private Sub loginBtn_Click(sender As Object, e As EventArgs) Handles cariBtn.Click
             Dim tables As DataTableCollection = DS.Tables
@@ -107,7 +109,7 @@ Public Class FLevel
         DGlevel.DataSource = tampil
         DGlevel.Refresh()
         'memunculkan data tabel berdasarkan pencarian Txt_Cari(memasukkan ID Anggota)
-        tampil.RowFilter = "id_level = '" & cariTxt.Text & "'"
+        tampil.RowFilter = "nama_level = '" & cariTxt.Text & "'"
         DGlevel.Refresh()
 
     End Sub

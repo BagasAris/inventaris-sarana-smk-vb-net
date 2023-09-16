@@ -33,7 +33,6 @@ Partial Class Form3
         Me.usernameTxt = New System.Windows.Forms.TextBox()
         Me.passwordTxt = New System.Windows.Forms.TextBox()
         Me.namaTxt = New System.Windows.Forms.TextBox()
-        Me.idTxt = New System.Windows.Forms.TextBox()
         Me.cariTxt = New System.Windows.Forms.TextBox()
         Me.cariBtn = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
@@ -42,6 +41,7 @@ Partial Class Form3
         Me.btnKeluar = New System.Windows.Forms.Button()
         Me.idPetugasTxt = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.DGpetugas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -161,14 +161,6 @@ Partial Class Form3
         Me.namaTxt.Size = New System.Drawing.Size(298, 22)
         Me.namaTxt.TabIndex = 12
         '
-        'idTxt
-        '
-        Me.idTxt.Location = New System.Drawing.Point(169, 335)
-        Me.idTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.idTxt.Name = "idTxt"
-        Me.idTxt.Size = New System.Drawing.Size(298, 22)
-        Me.idTxt.TabIndex = 13
-        '
         'cariTxt
         '
         Me.cariTxt.Location = New System.Drawing.Point(608, 100)
@@ -252,12 +244,21 @@ Partial Class Form3
         Me.Label8.TabIndex = 20
         Me.Label8.Text = "ID PETUGAS"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(169, 338)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(298, 23)
+        Me.ComboBox1.TabIndex = 22
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Cyan
         Me.ClientSize = New System.Drawing.Size(933, 519)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.idPetugasTxt)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.btnKeluar)
@@ -266,7 +267,6 @@ Partial Class Form3
         Me.Controls.Add(Me.btnSimpan)
         Me.Controls.Add(Me.cariBtn)
         Me.Controls.Add(Me.cariTxt)
-        Me.Controls.Add(Me.idTxt)
         Me.Controls.Add(Me.namaTxt)
         Me.Controls.Add(Me.passwordTxt)
         Me.Controls.Add(Me.usernameTxt)
@@ -301,7 +301,6 @@ Partial Class Form3
     Friend WithEvents usernameTxt As TextBox
     Friend WithEvents passwordTxt As TextBox
     Friend WithEvents namaTxt As TextBox
-    Friend WithEvents idTxt As TextBox
     Friend WithEvents cariTxt As TextBox
     Friend WithEvents cariBtn As Button
     Friend WithEvents btnSimpan As Button
@@ -310,4 +309,5 @@ Partial Class Form3
     Friend WithEvents btnKeluar As Button
     Friend WithEvents idPetugasTxt As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

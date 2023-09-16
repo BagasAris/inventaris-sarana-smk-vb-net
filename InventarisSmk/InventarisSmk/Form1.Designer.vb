@@ -41,7 +41,7 @@ Partial Class Form1
         '
         Me.passwordTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.passwordTxt.Location = New System.Drawing.Point(438, 256)
+        Me.passwordTxt.Location = New System.Drawing.Point(423, 260)
         Me.passwordTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.passwordTxt.Name = "passwordTxt"
         Me.passwordTxt.Size = New System.Drawing.Size(300, 20)
@@ -51,7 +51,7 @@ Partial Class Form1
         '
         Me.usernameTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.usernameTxt.Location = New System.Drawing.Point(440, 184)
+        Me.usernameTxt.Location = New System.Drawing.Point(423, 184)
         Me.usernameTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.usernameTxt.Name = "usernameTxt"
         Me.usernameTxt.Size = New System.Drawing.Size(300, 20)
@@ -87,7 +87,7 @@ Partial Class Form1
         Me.btnBatal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBatal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnBatal.ForeColor = System.Drawing.Color.White
-        Me.btnBatal.Location = New System.Drawing.Point(611, 313)
+        Me.btnBatal.Location = New System.Drawing.Point(596, 313)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(127, 34)
         Me.btnBatal.TabIndex = 14
@@ -110,7 +110,7 @@ Partial Class Form1
         '
         Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.Location = New System.Drawing.Point(440, 313)
+        Me.btnLogin.Location = New System.Drawing.Point(423, 313)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(127, 34)
         Me.btnLogin.TabIndex = 12
@@ -152,7 +152,7 @@ Partial Class Form1
         Me.show.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.show.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.show.ForeColor = System.Drawing.Color.White
-        Me.show.Location = New System.Drawing.Point(745, 250)
+        Me.show.Location = New System.Drawing.Point(730, 256)
         Me.show.Name = "show"
         Me.show.Size = New System.Drawing.Size(58, 30)
         Me.show.TabIndex = 21

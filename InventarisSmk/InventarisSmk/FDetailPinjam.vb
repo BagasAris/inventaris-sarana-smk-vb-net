@@ -3,12 +3,26 @@ Public Class FDetailPinjam
     Private Sub FDetailPinjam_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call tampilUser()
         Call aturDGV()
+        Call isiComboInventaris()
+    End Sub
+
+    Sub isiComboInventaris()
+        Call koneksi()
+        Dim query As String = "select nama from tb_inventaris"
+        CMD = New MySqlCommand(query, CONN)
+        RD = CMD.ExecuteReader()
+        While RD.Read()
+            Dim namaInventaris As String = RD("nama").ToString()
+            ComboBox1.Items.Add(namaInventaris)
+        End While
     End Sub
 
     Sub tampilUser()
 
         Call koneksi()
-        DA = New MySql.Data.MySqlClient.MySqlDataAdapter("select * from tb_detail_pinjam", CONN)
+        DA = New MySqlDataAdapter("SELECT tb_detail_pinjam.id_detail_pinjam, tb_inventaris.nama, tb_detail_pinjam.jumlah " &
+        "FROM tb_detail_pinjam " &
+        "INNER JOIN tb_inventaris ON tb_detail_pinjam.id_inventaris = tb_inventaris.id_inventaris", CONN)
         DS = New DataSet
         DA.Fill(DS, "tb_detail_pinjam")
         DGdetail.DataSource = DS.Tables("tb_detail_pinjam")
@@ -32,12 +46,12 @@ Public Class FDetailPinjam
         Try
             Dim str As String
             'str = "INSERT INTO tb_petugas (id_petugas, username, password, nama_petugas, id_level) VALUES ('" & idPetugasTxt.Text & "','" & usernameTxt.Text & "', '" & passwordTxt.Text & "', '" & namaTxt.Text & "',' SELECT id_level FROM tb_level WHERE id_level = '" & idTxt.Text & "')"
-            str = "INSERT INTO tb_detail_pinjam (id_detail_pinjam, id_inventaris, jumlah) VALUES ('" & idDetailTxt.Text & "','" & idIventarisTxt.Text & "','" & jumlahTxt.Text & "')"
+            str = "INSERT INTO tb_detail_pinjam (id_detail_pinjam, id_inventaris, jumlah) VALUES ('" & idDetailTxt.Text & "',(Select id_inventaris from tb_inventaris where nama='" & ComboBox1.Text & "'),'" & jumlahTxt.Text & "')"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Insert Data User Berhasil Dilakukan")
+            MessageBox.Show("Insert Data Detail Pinjam Berhasil Dilakukan")
         Catch ex As Exception
-            MessageBox.Show("Insert data User gagal dilakukan.")
+            MessageBox.Show("Insert Data Detail Pinjam gagal dilakukan.")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -52,13 +66,13 @@ Public Class FDetailPinjam
         Try
             Call koneksi()
             Dim str As String
-            str = "UPDATE tb_detail_pinjam SET id_detail_pinjam = '" & idDetailTxt.Text & "', id_inventaris = '" & idIventarisTxt.Text & "', jumlah = '" & jumlahTxt.Text & "' WHERE id_detail_pinjam = '" & idDetailTxt.Text & "'"
+            str = "UPDATE tb_detail_pinjam SET id_detail_pinjam = '" & idDetailTxt.Text & "', id_inventaris = (Select id_inventaris from tb_inventaris where nama='" & ComboBox1.Text & "'), jumlah = '" & jumlahTxt.Text & "' WHERE id_detail_pinjam = '" & idDetailTxt.Text & "'"
             CMD = New MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Update Data User Berhasil Dilakukan.")
+            MessageBox.Show("Update Data Detail Pinjam Berhasil Dilakukan.")
 
         Catch ex As Exception
-            MessageBox.Show("Update data User gagal dilakukan")
+            MessageBox.Show("Update Data Detail Pinjam gagal dilakukan")
         End Try
         Call tampilUser()
         Call aturDGV()
@@ -75,26 +89,28 @@ Public Class FDetailPinjam
             str = "delete from tb_detail_pinjam where id_detail_pinjam = '" & idDetailTxt.Text & "'"
             CMD = New MySql.Data.MySqlClient.MySqlCommand(str, CONN)
             CMD.ExecuteNonQuery()
-            MessageBox.Show("Data User Berhasil Dihapus.")
+            MessageBox.Show("Data Detail Pinjam Berhasil Dihapus.")
 
         Catch ex As Exception
-            MessageBox.Show("Data User Gagal Dihapus.")
+            MessageBox.Show("Data Detail Pinjam Gagal Dihapus.")
         End Try
         Call tampilUser()
         Call aturDGV()
     End Sub
 
     Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Menghapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Call hapusUser()
     End Sub
 
     Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
+        MessageBox.Show("Apakah Anda Yakin Akan Keluar", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Question)
         Me.Close()
     End Sub
 
     Private Sub DGdetail_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGdetail.CellContentClick
         idDetailTxt.Text = DGdetail.Rows(e.RowIndex).Cells(0).Value
-        idIventarisTxt.Text = DGdetail.Rows(e.RowIndex).Cells(1).Value
+        ComboBox1.Text = DGdetail.Rows(e.RowIndex).Cells(1).Value
         jumlahTxt.Text = DGdetail.Rows(e.RowIndex).Cells(2).Value
     End Sub
 

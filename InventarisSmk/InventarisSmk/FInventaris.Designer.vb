@@ -30,9 +30,6 @@ Partial Class FInventaris
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.cariBtn = New System.Windows.Forms.Button()
         Me.cariTxt = New System.Windows.Forms.TextBox()
-        Me.idRuangTxt = New System.Windows.Forms.TextBox()
-        Me.idJenisTxt = New System.Windows.Forms.TextBox()
-        Me.kondisiTxt = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -46,11 +43,14 @@ Partial Class FInventaris
         Me.Label9 = New System.Windows.Forms.Label()
         Me.kodeTxt = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.idPetugasTxt = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.keteranganTxt = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.tglRegister = New System.Windows.Forms.DateTimePicker()
+        Me.CBjenis = New System.Windows.Forms.ComboBox()
+        Me.CBruang = New System.Windows.Forms.ComboBox()
+        Me.CBpetugas = New System.Windows.Forms.ComboBox()
+        Me.CBkondisi = New System.Windows.Forms.ComboBox()
         CType(Me.DGinventaris, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -137,30 +137,6 @@ Partial Class FInventaris
         Me.cariTxt.Size = New System.Drawing.Size(233, 20)
         Me.cariTxt.TabIndex = 51
         '
-        'idRuangTxt
-        '
-        Me.idRuangTxt.Location = New System.Drawing.Point(605, 84)
-        Me.idRuangTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.idRuangTxt.Name = "idRuangTxt"
-        Me.idRuangTxt.Size = New System.Drawing.Size(298, 20)
-        Me.idRuangTxt.TabIndex = 50
-        '
-        'idJenisTxt
-        '
-        Me.idJenisTxt.Location = New System.Drawing.Point(150, 164)
-        Me.idJenisTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.idJenisTxt.Name = "idJenisTxt"
-        Me.idJenisTxt.Size = New System.Drawing.Size(298, 20)
-        Me.idJenisTxt.TabIndex = 49
-        '
-        'kondisiTxt
-        '
-        Me.kondisiTxt.Location = New System.Drawing.Point(150, 112)
-        Me.kondisiTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.kondisiTxt.Name = "kondisiTxt"
-        Me.kondisiTxt.Size = New System.Drawing.Size(298, 20)
-        Me.kondisiTxt.TabIndex = 48
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -224,7 +200,7 @@ Partial Class FInventaris
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Algerian", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(261, 9)
+        Me.Label1.Location = New System.Drawing.Point(312, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(327, 41)
@@ -253,6 +229,7 @@ Partial Class FInventaris
         '
         'jumlahTxt
         '
+        Me.jumlahTxt.AutoCompleteCustomSource.AddRange(New String() {"Baik", "Rusak", "Hilang"})
         Me.jumlahTxt.Location = New System.Drawing.Point(150, 138)
         Me.jumlahTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.jumlahTxt.Name = "jumlahTxt"
@@ -303,14 +280,6 @@ Partial Class FInventaris
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "KODE INVENTARIS"
         '
-        'idPetugasTxt
-        '
-        Me.idPetugasTxt.Location = New System.Drawing.Point(605, 136)
-        Me.idPetugasTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.idPetugasTxt.Name = "idPetugasTxt"
-        Me.idPetugasTxt.Size = New System.Drawing.Size(298, 20)
-        Me.idPetugasTxt.TabIndex = 68
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -351,16 +320,52 @@ Partial Class FInventaris
         Me.tglRegister.Size = New System.Drawing.Size(298, 20)
         Me.tglRegister.TabIndex = 71
         '
+        'CBjenis
+        '
+        Me.CBjenis.FormattingEnabled = True
+        Me.CBjenis.Location = New System.Drawing.Point(150, 165)
+        Me.CBjenis.Name = "CBjenis"
+        Me.CBjenis.Size = New System.Drawing.Size(298, 21)
+        Me.CBjenis.TabIndex = 72
+        '
+        'CBruang
+        '
+        Me.CBruang.FormattingEnabled = True
+        Me.CBruang.Location = New System.Drawing.Point(605, 81)
+        Me.CBruang.Name = "CBruang"
+        Me.CBruang.Size = New System.Drawing.Size(298, 21)
+        Me.CBruang.TabIndex = 73
+        '
+        'CBpetugas
+        '
+        Me.CBpetugas.FormattingEnabled = True
+        Me.CBpetugas.Location = New System.Drawing.Point(605, 136)
+        Me.CBpetugas.Name = "CBpetugas"
+        Me.CBpetugas.Size = New System.Drawing.Size(298, 21)
+        Me.CBpetugas.TabIndex = 74
+        '
+        'CBkondisi
+        '
+        Me.CBkondisi.FormattingEnabled = True
+        Me.CBkondisi.Items.AddRange(New Object() {"Baik", "Rusak ", "Hilang"})
+        Me.CBkondisi.Location = New System.Drawing.Point(150, 112)
+        Me.CBkondisi.Name = "CBkondisi"
+        Me.CBkondisi.Size = New System.Drawing.Size(298, 21)
+        Me.CBkondisi.TabIndex = 75
+        '
         'FInventaris
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aqua
         Me.ClientSize = New System.Drawing.Size(914, 450)
+        Me.Controls.Add(Me.CBkondisi)
+        Me.Controls.Add(Me.CBpetugas)
+        Me.Controls.Add(Me.CBruang)
+        Me.Controls.Add(Me.CBjenis)
         Me.Controls.Add(Me.tglRegister)
         Me.Controls.Add(Me.keteranganTxt)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.idPetugasTxt)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.kodeTxt)
         Me.Controls.Add(Me.Label10)
@@ -377,9 +382,6 @@ Partial Class FInventaris
         Me.Controls.Add(Me.btnSimpan)
         Me.Controls.Add(Me.cariBtn)
         Me.Controls.Add(Me.cariTxt)
-        Me.Controls.Add(Me.idRuangTxt)
-        Me.Controls.Add(Me.idJenisTxt)
-        Me.Controls.Add(Me.kondisiTxt)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -403,9 +405,6 @@ Partial Class FInventaris
     Friend WithEvents btnSimpan As Button
     Friend WithEvents cariBtn As Button
     Friend WithEvents cariTxt As TextBox
-    Friend WithEvents idRuangTxt As TextBox
-    Friend WithEvents idJenisTxt As TextBox
-    Friend WithEvents kondisiTxt As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
@@ -419,9 +418,12 @@ Partial Class FInventaris
     Friend WithEvents Label9 As Label
     Friend WithEvents kodeTxt As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents idPetugasTxt As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents keteranganTxt As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents tglRegister As DateTimePicker
+    Friend WithEvents CBjenis As ComboBox
+    Friend WithEvents CBruang As ComboBox
+    Friend WithEvents CBpetugas As ComboBox
+    Friend WithEvents CBkondisi As ComboBox
 End Class
